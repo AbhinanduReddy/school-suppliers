@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->fetch() && password_verify($password, $dbPassword)) {
         session_start();
         $_SESSION["username"] = $dbUsername;
+        
         header("location: index.php");
     } else {
         echo "Login failed. Please check your credentials.";

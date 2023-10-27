@@ -48,26 +48,23 @@ if (isset($_SESSION['username'])) {
        
     </header>
  
-    <div class="container" style="background-image: url('back.jpg');  background-repeat: no-repeat;background-size: cover;">
+    <div class="container" style="background-image: url('ABOUT.jpg'); color:white; background-repeat: no-repeat;background-size: cover;">
         <!-- <img class="image" src="home_im.jpeg" alt="Image"> -->
-        <div class="center-container" style="font-size :28px; color:white">
-        <article class="news-article">
-            <h2>Exciting New Products Now Available!</h2>
-            <p>We are thrilled to announce the arrival of our latest product line, featuring innovative school supplies that will make learning even more engaging. Explore our new arrivals today!</p>
-        </article>
-
-        <article class="news-article">
-            <h2>Back-to-School Sale Event</h2>
-            <p>Get ready for the new school year with our amazing Back-to-School Sale. Enjoy significant discounts on a wide range of school supplies and backpacks. Don't miss out!</p>
-        </article>
-
-        <article class="news-article">
-            <h2>Supporting Education Initiatives</h2>
-            <p>School Supplies Co. is proud to announce its partnership with local educational initiatives. We're committed to providing resources and support to schools and students in need.</p>
-        </article>
-    </div>
-
-  
+        <div class="center-container" >
+        <h2>Our Product Range</h2>
+        <p>Explore our extensive product range, including:</p>
+        <ul>
+            <li>Stationery</li>
+            <li>Art Supplies</li>
+            <li>Educational Materials</li>
+            <li>Backpacks and Bags</li>
+            <li>Classroom Essentials</li>
+            <li>Technology Accessories</li>
+            <li>Office Supplies</li>
+            <li>And Much More</li>
+        </ul>
+</div>
+        
     </div>
 
 
@@ -75,4 +72,6 @@ if (isset($_SESSION['username'])) {
 
 </body>
 </html>
+
+
 
