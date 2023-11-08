@@ -2,7 +2,7 @@
         /* For example, you can style the background, fonts, and links */
         .center-container {
             font-size: 30px;
-            position: absolute;
+            position: relative;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -142,9 +142,10 @@ body {
             left: 50%;
             display: absolute;
             align-items: center;
-            height: 700px; /* Adjust the height as needed */
+            height: 775px; /* Adjust the height as needed */
             background-color: #ffffff;
             padding: 20px;
+            position: sticky;
         }
 
         /* Image styling */

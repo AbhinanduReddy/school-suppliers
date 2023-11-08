@@ -27,7 +27,7 @@ if (isset($_SESSION['username'])) {
         <div class="logo"><img src="icon.png"></img> </div>
         <nav>
             <ul>
-                <li><a href="index.php">Home</a></li>
+            <li><a href="index.php">Home</a></li>
                 <li><a href="about.php">About</a></li>
                 <li><a href="products.php">Products</a></li>
                 <li><a href="news.php">News</a></li>

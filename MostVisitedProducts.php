@@ -66,36 +66,61 @@ if (isset($_SESSION['username'])) {
     <div  >
         <!-- <img class="image" src="home_im.jpeg" alt="Image"> -->
         <div  >
-        <h2>Last Five Visited Products</h2>
+        <h2>Top Five Most Visited Products</h2>
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <button type="submit" name="clearCookies" class="clearCookies">Clear All</button>
     </form>
         <?php
         if (isset($_POST['clearCookies'])) {
-            setcookie('visitedProducts', '', time() - 3600, '/'); // Expire the cookie
+            setcookie('MostVisitedProducts', '', time() - 3600, '/'); // Expire the cookie
             header('Location: ' . $_SERVER['PHP_SELF']); // Reload the page
             exit();
         }
 
-$visitedProducts = isset($_COOKIE['visitedProducts']) ? explode('`', $_COOKIE['visitedProducts']) : [];
-
-
-// Loop through the mocked product data and generate product cards
-foreach ($visitedProducts as $productt) {
-    $product= explode('~',$productt);
+$mostVisitedProducts = isset($_COOKIE['MostVisitedProducts']) ? explode('`', $_COOKIE['MostVisitedProducts']) : [];
+usort($mostVisitedProducts, function ($a, $b) {
+    // Split the elements by ~ and extract the count part
+    if(isset($a[0]) && isset($a[1])){
+        $countA = (int)explode("~", $a)[1];
+        $countB = (int)explode("~", $b)[1];
+        return $countA < $countB;
+    }
     
-    if(isset($product[0]) && isset($product[1]) && isset($product[2]) && isset($product[3]) ){
-        echo '<a style="color:white" href="/school-suppliers/product.php?name='. $product[0] .'&img='. $product[1] .'&des='. $product[1] .'&price='. $product[3] .'">';
+
+    // Compare the count values
+    
+});
+
+for ($i = 0; $i <= 5 && $i < count($mostVisitedProducts); $i++) {
+    $product= explode('~',$mostVisitedProducts[$i]);
+    
+    if(isset($product[0]) && isset($product[1]) ){
+        echo '<a style="color:white" href="/school-suppliers/product.php?name='. $product[0] .'&img='. $product[2] .'&des='. $product[3] .'&price='. $product[4] .'">';
         echo '<div class="product-card" >';
-        echo '<img src="' . urldecode($product[3]) . '" alt="Product Image" width="150" height="150">';
+        echo '<img src="' . urldecode($product[2]) . '" alt="Product Image" width="150" height="150">';
         echo '<h2 class="product-title">' . $product[0] . '</h2>';
-        echo '<p class="product-description">' . $product[1] . '</p>';
-        echo '<p class="product-price">$' . $product[2] . '</p>';
+        echo '<p class="product-description">' . $product[3] . '</p>';
+        echo '<p class="product-price">$' . $product[4] . '</p>';
         echo '</div>';
         echo '</a>';
     }
-   
 }
+// Loop through the mocked product data and generate product cards
+// foreach ($mostVisitedProducts as $productt) {
+//     $product= explode('~',$productt);
+    
+//     if(isset($product[0]) && isset($product[1]) ){
+//         echo '<a style="color:white" href="/school-suppliers/product.php?name='. $product[0] .'&img='. $product[2] .'&des='. $product[3] .'&price='. $product[4] .'">';
+//         echo '<div class="product-card" >';
+//         echo '<img src="' . urldecode($product[2]) . '" alt="Product Image" width="150" height="150">';
+//         echo '<h2 class="product-title">' . $product[0] . '</h2>';
+//         echo '<p class="product-description">' . $product[3] . '</p>';
+//         echo '<p class="product-price">$' . $product[4] . '</p>';
+//         echo '</div>';
+//         echo '</a>';
+//     }
+   
+// }
 ?>
 
 </div>

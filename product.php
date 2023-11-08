@@ -39,11 +39,12 @@
         
         $productNameJ=implode('~',$pn);
         $existingCookie = isset($_COOKIE['visitedProducts']) ? $_COOKIE['visitedProducts'] : '';
-        $productCountCookie = isset($_COOKIE[$productName]) ? $_COOKIE[$productName] : '';
-
+        $mostvisitedCookie = isset($_COOKIE['MostVisitedProducts']) ? $_COOKIE['MostVisitedProducts'] : '';
+        $mostVisitedArray = explode('`', $mostvisitedCookie);
 
         $productsArray = explode('`', $existingCookie);
         $found=false;
+        // removing already visited product and adding to the front
         foreach ($productsArray as $key=>$productt) {
             $product= explode('~',$productt);
             if(isset($product[0]) && isset($product[1]) && isset($product[2]) && isset($product[3]) ){
@@ -52,6 +53,19 @@
                 }
             }
         }
+        foreach ($mostVisitedArray as $key=>$mostproductt) {
+            $product= explode('~',$mostproductt);
+            if(isset($product[0]) && isset($product[1]) ){
+                if($product[0]== $productName){
+                    $found=true;
+                    $product[1]= (int)$product[1]+1;
+                    $mostVisitedArray[$key] = "$productName~$product[1]~$img~$productDescription~$productPrice";
+                }
+            }
+        }
+        if($found==false){
+            array_push($mostVisitedArray, "$productName~1~$img~$productDescription~$productPrice");
+        }
         $productsArray = array_values($productsArray);
 
         array_unshift($productsArray, $productNameJ);
@@ -59,16 +73,12 @@
             array_pop($productsArray);
         }
       
-        if($productCountCookie==''){
-            $productCountCookie=1;
-        }
-        else{
-            $productCountCookie = (int)$productCountCookie+1;
-        }
+        
 
         // Set the cookie with the updated products array
         setcookie('visitedProducts', implode('`', $productsArray), strtotime('Fri, 31 Dec 9999 23:59:59 GMT'), '/');
-        setcookie($productName,$productCountCookie , strtotime('Fri, 31 Dec 9999 23:59:59 GMT'), '/');
+        setcookie('MostVisitedProducts', implode('`', $mostVisitedArray), strtotime('Fri, 31 Dec 9999 23:59:59 GMT'), '/');
+
 
 
 

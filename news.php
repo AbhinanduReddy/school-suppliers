@@ -50,7 +50,7 @@ if (isset($_SESSION['username'])) {
  
     <div class="container" style="background-image: url('back.jpg');  background-repeat: no-repeat;background-size: cover;">
         <!-- <img class="image" src="home_im.jpeg" alt="Image"> -->
-        <div class="center-container" style="font-size :28px; color:white">
+        <div class="center-container" style="font-size :28px; color:white;">
         <article class="news-article">
             <h2>Exciting New Products Now Available!</h2>
             <p>We are thrilled to announce the arrival of our latest product line, featuring innovative school supplies that will make learning even more engaging. Explore our new arrivals today!</p>
