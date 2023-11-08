@@ -47,8 +47,8 @@ if (isset($_SESSION['username'])) {
         </nav>
 
     </header>
-    <div class="containerr"
-        style="background-image: url('back.jpg');  background-repeat: no-repeat;background-size: cover;">
+    <div class="containerr-contact"
+        >
         <div class="center-container" style="color:white">
             <h1>Contacts</h1>
             <?php

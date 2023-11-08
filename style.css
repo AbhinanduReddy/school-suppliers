@@ -1,5 +1,8 @@
 /* Add CSS styles for the navigation bar and header here */
         /* For example, you can style the background, fonts, and links */
+        .product {
+            display: relative !important;
+        }
         .center-container {
             font-size: 30px;
             position: relative;
@@ -138,16 +141,28 @@ body {
             padding: 20px;
         }
         .containerr {
-            top: 50%;
-            left: 50%;
+            left: 40%;
             display: absolute;
             align-items: center;
             height: 775px; /* Adjust the height as needed */
-            background-color: #ffffff;
             padding: 20px;
-            position: sticky;
+            position: absolute;
         }
-
+        .containerr-news {
+            left: 15%;
+            display: absolute;
+            align-items: center;
+            height: 605px; /* Adjust the height as needed */
+            padding: 20px;
+            position: absolute;
+        }
+        .containerr-contact {
+            left: 15%;
+            align-items: center;
+            height: 505px; /* Adjust the height as needed */
+            padding: 20px;
+            position: absolute;
+        }
         /* Image styling */
         .image {
             border-radius: 50px;

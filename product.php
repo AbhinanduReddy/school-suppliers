@@ -25,9 +25,9 @@
        
     </header>
  
-    <div class="container" style="background-image: url('ABOUT.jpg'); color:white; background-repeat: no-repeat;background-size: cover;">
+    <div class="containerr">
         <!-- <img class="image" src="home_im.jpeg" alt="Image"> -->
-        <div class="center-container" >
+        <div style="left:50%" class= "product" >
         <?php
         
     if (isset($_GET['name']) && isset($_GET['img']) && isset($_GET['price']) && isset($_GET['des'])) {
@@ -82,7 +82,7 @@
 
 
 
-        echo '<div class="product" style="">';
+        echo '<div class="product">';
         echo '<img src="' . $img . '" alt="Product Image" width="150" height="150">';
         echo '<h2>' . $productName . '</h2>'; 
         echo '<p>Description: ' . urldecode($productDescription) . '</p>';

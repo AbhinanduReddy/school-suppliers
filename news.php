@@ -48,7 +48,7 @@ if (isset($_SESSION['username'])) {
        
     </header>
  
-    <div class="container" style="background-image: url('back.jpg');  background-repeat: no-repeat;background-size: cover;">
+    <div class="containerr-news">
         <!-- <img class="image" src="home_im.jpeg" alt="Image"> -->
         <div class="center-container" style="font-size :28px; color:white;">
         <article class="news-article">
