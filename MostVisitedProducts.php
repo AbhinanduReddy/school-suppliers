@@ -95,7 +95,7 @@ for ($i = 0; $i <= 5 && $i < count($mostVisitedProducts); $i++) {
     $product= explode('~',$mostVisitedProducts[$i]);
     
     if(isset($product[0]) && isset($product[1]) ){
-        echo '<a style="color:white" href="/school-suppliers/product.php?name='. $product[0] .'&img='. $product[2] .'&des='. $product[3] .'&price='. $product[4] .'">';
+        echo '<a style="color:white" href="/schoolsupplies/product.php?name='. $product[0] .'&img='. $product[2] .'&des='. $product[3] .'&price='. $product[4] .'">';
         echo '<div class="product-card" >';
         echo '<img src="' . urldecode($product[2]) . '" alt="Product Image" width="150" height="150">';
         echo '<h2 class="product-title">' . $product[0] . '</h2>';
@@ -110,7 +110,7 @@ for ($i = 0; $i <= 5 && $i < count($mostVisitedProducts); $i++) {
 //     $product= explode('~',$productt);
     
 //     if(isset($product[0]) && isset($product[1]) ){
-//         echo '<a style="color:white" href="/school-suppliers/product.php?name='. $product[0] .'&img='. $product[2] .'&des='. $product[3] .'&price='. $product[4] .'">';
+//         echo '<a style="color:white" href="/schoolsupplies/product.php?name='. $product[0] .'&img='. $product[2] .'&des='. $product[3] .'&price='. $product[4] .'">';
 //         echo '<div class="product-card" >';
 //         echo '<img src="' . urldecode($product[2]) . '" alt="Product Image" width="150" height="150">';
 //         echo '<h2 class="product-title">' . $product[0] . '</h2>';

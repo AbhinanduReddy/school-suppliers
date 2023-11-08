@@ -66,8 +66,8 @@ if (isset($_SESSION['username'])) {
         <!-- <img class="image" src="home_im.jpeg" alt="Image"> -->
         <div  >
         <h2>Our Products</h2>
-        <a class="button-link" href='/school-suppliers/visitedProducts.php'>Last Visited Products</a>
-        <a class="button-link" href='/school-suppliers/MostVisitedProducts.php'>Most Visited Products</a>
+        <a class="button-link" href='/schoolsupplies/visitedProducts.php'>Last Visited Products</a>
+        <a class="button-link" href='/schoolsupplies/MostVisitedProducts.php'>Most Visited Products</a>
 
         <p>Explore our extensive product range, including:</p>
         <?php
@@ -87,7 +87,7 @@ if (file_exists($jsonFilePath) && is_readable($jsonFilePath)) {
 
 // Loop through the mocked product data and generate product cards
 foreach ($products as $product) {
-    echo '<a style="color:white" href="/school-suppliers/product.php?name='. $product['product_name'] .'&img='. $product['img'] .'&des='. $product['product_description'] .'&price='. $product['product_price'] .'">';
+    echo '<a style="color:white" href="/schoolsupplies/product.php?name='. $product['product_name'] .'&img='. $product['img'] .'&des='. $product['product_description'] .'&price='. $product['product_price'] .'">';
     echo '<div class="product-card" >';
     echo '<img src="' . $product['img'] . '" alt="Product Image" width="150" height="150">';
     echo '<h2 class="product-title">' . $product['product_name'] . '</h2>';

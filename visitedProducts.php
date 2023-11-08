@@ -85,7 +85,7 @@ foreach ($visitedProducts as $productt) {
     $product= explode('~',$productt);
     
     if(isset($product[0]) && isset($product[1]) && isset($product[2]) && isset($product[3]) ){
-        echo '<a style="color:white" href="/school-suppliers/product.php?name='. $product[0] .'&img='. $product[1] .'&des='. $product[1] .'&price='. $product[3] .'">';
+        echo '<a style="color:white" href="/schoolsupplies/product.php?name='. $product[0] .'&img='. $product[3] .'&des='. $product[1] .'&price='. $product[2] .'">';
         echo '<div class="product-card" >';
         echo '<img src="' . urldecode($product[3]) . '" alt="Product Image" width="150" height="150">';
         echo '<h2 class="product-title">' . $product[0] . '</h2>';
