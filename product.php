@@ -20,6 +20,8 @@
                 <li><a href="news.php">News</a></li>
 
                 <li><a href="contact.php">Contact</a></li>
+                <li><a href="companyUsers.php">CompanyUsers</a></li>
+
             </ul>
         </nav>
        

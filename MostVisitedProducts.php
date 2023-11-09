@@ -47,6 +47,8 @@ if (isset($_SESSION['username'])) {
                 <li><a href="products.php">Products</a></li>
                 <li><a href="news.php">News</a></li>
                 <li><a href="contact.php">Contact</a></li>
+                <li><a href="companyUsers.php">CompanyUsers</a></li>
+
     <?php
     if (isset($_SESSION['username']) && $_SESSION['username'] === 'admin') {
         // Display the "Users" link only if the user is logged in as admin
