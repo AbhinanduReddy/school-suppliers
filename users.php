@@ -41,6 +41,7 @@ if (isset($_SESSION['username'])) {
     if (isset($_SESSION['username']) && $_SESSION['username'] === 'admin') {
         // Display the "Users" link only if the user is logged in as admin
         echo '<li><a href="users.php">Users</a></li>';
+        echo '<li><a href="user.php">UsersInfo</a></li>';
     }
     ?>
 
@@ -53,8 +54,8 @@ if (isset($_SESSION['username'])) {
 
     </header>
     <div class="containerr"
-        style="background-image: url('back.jpg');  background-repeat: no-repeat;background-size: cover;">
-        <div class="center-container" style="color:white">
+ >
+        <div  style="color:white">
              <?php
     if (isset($_SESSION['username']) && $_SESSION['username'] === 'admin') {
         //read contacts from text files
