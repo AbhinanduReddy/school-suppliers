@@ -27,11 +27,13 @@ if (isset($_SESSION['username'])) {
         <div class="logo"><img src="icon.png"></img> </div>
         <nav>
             <ul>
-                <li><a href="index.php">Home</a></li>
+            <li><a href="index.php">Home</a></li>
                 <li><a href="about.php">About</a></li>
                 <li><a href="products.php">Products</a></li>
                 <li><a href="news.php">News</a></li>
                 <li><a href="contact.php">Contact</a></li>
+                <li><a href="companyUsers.php">CompanyUsers</a></li>
+
     <?php
     if (isset($_SESSION['username']) && $_SESSION['username'] === 'admin') {
         // Display the "Users" link only if the user is logged in as admin
@@ -47,8 +49,8 @@ if (isset($_SESSION['username'])) {
         </nav>
 
     </header>
-    <div class="containerr"
-        style="background-image: url('back.jpg');  background-repeat: no-repeat;background-size: cover;">
+    <div class="containerr-contact"
+        >
         <div class="center-container" style="color:white">
             <h1>Contacts</h1>
             <?php

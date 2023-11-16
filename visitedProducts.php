@@ -19,21 +19,22 @@ if (isset($_SESSION['username'])) {
 
     <title>School Supplies</title>
     <style>
-        .button-link {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+        /* Style for the button */
+        .clearCookies {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
 
-/* Style for the button on hover */
-.button-link:hover {
-    background-color: #2580b3;
-}
+        /* Style for the button on hover */
+        .clearCookies:hover {
+            background-color: #2580b3;
+        }
+
+      
     </style>
 </head>
 <body>
@@ -67,36 +68,35 @@ if (isset($_SESSION['username'])) {
     <div  >
         <!-- <img class="image" src="home_im.jpeg" alt="Image"> -->
         <div  >
-        <h2>Our Products</h2>
-        <a class="button-link" href='/schoolsupplies/visitedProducts.php'>Last Visited Products</a>
-        <a class="button-link" href='/schoolsupplies/MostVisitedProducts.php'>Most Visited Products</a>
-
-        <p>Explore our extensive product range, including:</p>
+        <h2>Last Five Visited Products</h2>
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <button type="submit" name="clearCookies" class="clearCookies">Clear All</button>
+    </form>
         <?php
+        if (isset($_POST['clearCookies'])) {
+            setcookie('visitedProducts', '', time() - 3600, '/'); // Expire the cookie
+            header('Location: ' . $_SERVER['PHP_SELF']); // Reload the page
+            exit();
+        }
 
-$jsonFilePath = 'productsList.json';
-
-if (file_exists($jsonFilePath) && is_readable($jsonFilePath)) {
-    $jsonContent = file_get_contents($jsonFilePath);
-
-    $products = json_decode($jsonContent, true);
-
-    if ($products === null) {
-        echo "Error decoding JSON.";
-    } 
-}
+$visitedProducts = isset($_COOKIE['visitedProducts']) ? explode('`', $_COOKIE['visitedProducts']) : [];
 
 
 // Loop through the mocked product data and generate product cards
-foreach ($products as $product) {
-    echo '<a style="color:white" href="/schoolsupplies/product.php?name='. $product['product_name'] .'&img='. $product['img'] .'&des='. $product['product_description'] .'&price='. $product['product_price'] .'">';
-    echo '<div class="product-card" >';
-    echo '<img src="' . $product['img'] . '" alt="Product Image" width="150" height="150">';
-    echo '<h2 class="product-title">' . $product['product_name'] . '</h2>';
-    echo '<p class="product-description">' . $product['product_description'] . '</p>';
-    echo '<p class="product-price">$' . $product['product_price'] . '</p>';
-    echo '</div>';
-    echo '</a>';
+foreach ($visitedProducts as $productt) {
+    $product= explode('~',$productt);
+    
+    if(isset($product[0]) && isset($product[1]) && isset($product[2]) && isset($product[3]) ){
+        echo '<a style="color:white" href="/schoolsupplies/product.php?name='. $product[0] .'&img='. $product[3] .'&des='. $product[1] .'&price='. $product[2] .'">';
+        echo '<div class="product-card" >';
+        echo '<img src="' . urldecode($product[3]) . '" alt="Product Image" width="150" height="150">';
+        echo '<h2 class="product-title">' . $product[0] . '</h2>';
+        echo '<p class="product-description">' . $product[1] . '</p>';
+        echo '<p class="product-price">$' . $product[2] . '</p>';
+        echo '</div>';
+        echo '</a>';
+    }
+   
 }
 ?>
 
